@@ -1,0 +1,65 @@
+nodes:
+  - name: tank-0000
+    bitcoin:
+      addnode:
+        - tank-0001
+        - tank-0002
+        - tank-0003
+    ln:
+      lnd: true
+      config: |
+        alias=alice
+      channels:
+        - id:
+            block: 300
+            index: 1
+          target: tank-0001-ln
+          capacity: 500000
+          push_amt: 250000
+
+  - name: tank-0001
+    bitcoin:
+      addnode:
+        - tank-0000
+        - tank-0002
+        - tank-0003
+    ln:
+      lnd: true
+      config: |
+        alias=bob
+      channels:
+        - id:
+            block: 300
+            index: 2
+          target: tank-0002-ln
+          capacity: 500000
+          push_amt: 250000
+
+  - name: tank-0002
+    bitcoin:
+      addnode:
+        - tank-0000
+        - tank-0001
+        - tank-0003
+    ln:
+      lnd: true
+      config: |
+        alias=carol
+      channels:
+        - id:
+            block: 300
+            index: 3
+          target: tank-0003-ln
+          capacity: 500000
+          push_amt: 250000
+
+  - name: tank-0003
+    bitcoin:
+      addnode:
+        - tank-0000
+        - tank-0001
+        - tank-0002
+    ln:
+      lnd: true
+      config: |
+        alias=dave

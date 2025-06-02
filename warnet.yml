@@ -1,0 +1,9 @@
+name: warnet
+root: ~/Work/dev-warnet # Set this to your home repo!
+
+windows:
+  - warnet-setup:
+      layout: even-horizontal
+      panes:
+        - source new_term.sh
+        - source new_term.sh
