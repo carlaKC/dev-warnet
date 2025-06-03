@@ -4,8 +4,7 @@ nodes:
       - tank-0001
       - tank-0002
       - tank-0003
-    ln:
-      lnd: true
+    lnd:
       config: |
         alias=alice
       channels:
@@ -15,14 +14,12 @@ nodes:
           target: tank-0001-ln
           capacity: 500000
           push_amt: 250000
-
   - name: tank-0001
     addnode:
       - tank-0000
       - tank-0002
       - tank-0003
-    ln:
-      lnd: true
+    lnd:
       config: |
         alias=bob
       channels:
@@ -38,8 +35,7 @@ nodes:
       - tank-0000
       - tank-0001
       - tank-0003
-    ln:
-      lnd: true
+    lnd:
       config: |
         alias=carol
       channels:
@@ -49,13 +45,11 @@ nodes:
           target: tank-0003-ln
           capacity: 500000
           push_amt: 250000
-
   - name: tank-0003
     addnode:
       - tank-0000
       - tank-0001
       - tank-0002
-    ln:
-      lnd: true
+    lnd:
       config: |
         alias=dave
