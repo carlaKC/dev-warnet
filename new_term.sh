@@ -3,13 +3,11 @@
 python3 -m venv .venv
 source .venv/bin/activate
 
-wd="$(pwd)"
-
 fn start() {
   echo "Deploying network"
-  warnet deploy $wd
+  warnet deploy warnet/networks/lightning
   echo "Opening Channels"
-  warnet run scenarios/ln_init.py
+  warnet run warnet/scenarios/ln_init.py
   echo "Waiting for gossip to sync"
   wait_for_scenario "gossip sync"
 }
