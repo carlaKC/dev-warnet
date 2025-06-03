@@ -13,7 +13,12 @@ fn start() {
 }
 
 fn stop() {
-  warnet down
+  warnet down --force
+}
+
+fn restart() {
+  stop
+  start
 }
 
 fn logs() {
@@ -29,6 +34,11 @@ fn cli() {
 
   tank_name=$(alias_to_tank "$1") || return 1
   warnet ln rpc "$tank_name" "$2"
+}
+
+fn mine() {
+  blocks=${1:-1}
+  warnet bitcoin rpc tank-0000 -generate "$blocks"
 }
 
 # Maps user friendly name to tank value.
